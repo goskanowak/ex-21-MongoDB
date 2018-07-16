@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://goska:alamakota1@ds139251.mlab.com:39251/nodeappdatabase', {
-  useMongoClient: true
-});
+mongoose.connect('mongodb://goska:alamakota1@ds139251.mlab.com:39251/nodeappdatabase');
 
 const Schema = mongoose.Schema;
 const userSchema = new Schema({
@@ -84,9 +82,10 @@ const findAllUsers = function() {
 
 const findSpecificRecord = function() {
 
-  return User.find({ username: 'Kenny_the_boy' }, function(err, res) {
-    if (err) throw err;
-    console.log('Record you are looking for is ' + res);
+  return User.find({ username: 'Kenny_the_boy' }, 
+    function(err, res) {
+      if (err) throw err;
+      console.log('Record you are looking for is ' + res);
   })
 }
 
